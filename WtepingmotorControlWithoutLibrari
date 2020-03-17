@@ -1,0 +1,28 @@
+int Distance = 0; 
+void setup() {
+  
+  pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
+  digitalWrite(8, LOW);
+  digitalWrite(9, LOW);
+  
+}
+
+void loop() {
+  
+  digitalWrite(9, HIGH);
+  delayMicroseconds(100);
+  digitalWrite(9, LOW);
+  delayMicroseconds(100);
+
+  Distance = Distance + 1; 
+
+  if (Distance == 3200){ 
+    if (digitalRead(8) == LOW)
+      digitalWrite(8, HIGH); 
+  else 
+      digitalWrite(8, LOW);
+      
+  Distance = 0; 
+  }
+}
